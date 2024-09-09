@@ -1,0 +1,16 @@
+{
+  "name": "ts-playground",
+  "version": "0.0.1",
+  "description": "Este proyecto es para experimentar TS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
