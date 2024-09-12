@@ -8,7 +8,7 @@ numero = 4;
 let numeroInterseccion: impares & hastaCinco;
 numeroInterseccion = 3;
 
-function getUser() {
+function getUserTest() {
   const success = [
     "success",
     { name: "Testino", email: "testino@mail.com" },
@@ -23,7 +23,7 @@ function getUser() {
   }
 }
 
-const [message, data] = getUser();
+const [message, data] = getUserTest();
 if (data instanceof Error) {
   data;
 } else {
