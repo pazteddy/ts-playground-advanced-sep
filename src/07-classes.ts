@@ -8,23 +8,42 @@ class Student {
 
   name: string;
   age: number;
-  private _id = Student.generateId();
+  private _id: number | null;
+
   protected get id() {
     return this._id;
   }
 
-  constructor({ name, age }: { name: string; age: number }) {
+  constructor(
+    { name, age }: { name: string; age: number },
+    generateId: boolean = true
+  ) {
     this.name = name;
     this.age = age;
+    this._id = generateId ? Student.generateId() : null;
     Student.totalStudents++;
   }
+
   sayHi(): void {
     console.log(`Hi! My name is ${this.name}`);
   }
 }
+
 class Graduate extends Student {
-  getStudentId() {
-    return this.id;
+  private _graduateId: number;
+
+  constructor({ name, age }: { name: string; age: number }) {
+    super({ name, age }, false);
+    this._graduateId = Graduate.generateGraduateId();
+  }
+
+  private static nextGraduateId = 1;
+  private static generateGraduateId(): number {
+    return this.nextGraduateId++;
+  }
+
+  getGraduateId() {
+    return this._graduateId;
   }
 }
 const testino = new Student({ age: 33, name: "Testino" });
@@ -35,6 +54,10 @@ console.log(angel);
 const dana = new Student({ age: 33, name: "Dana" });
 // console.log(Student.totalStudents);
 console.log(dana);
+const graduateEsteve = new Graduate({ name: "Esteve", age: 34 });
+console.log(graduateEsteve);
+const probino = new Student({ age: 33, name: "Probino" });
+console.log(probino);
 
 // Clase define una interfaz
 // const camila: Student = {
